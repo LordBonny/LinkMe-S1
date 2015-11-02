@@ -1,0 +1,51 @@
+<ion-view class="feeds-categories-view">
+  <ion-tabs class="tabs-positive tabs-icon-only">
+	<ion-tab title="Home" icon-on="ion-home" icon-off="ion-home-outline" href="app/home-myceleb-page">
+	<!-- Tab 1 content -->
+	</ion-tab>
+
+	<ion-tab title="New" icon-on="ion-ios-information" icon-off="ion-ios-information-outline" href="app/home-new-page">
+	<!-- Tab 2 content -->
+	</ion-tab>
+
+	<ion-tab title="Popular" icon-on="ion-ios-world" icon-off="ion-ios-world-outline" href"app/home-popular-page">
+	<!-- Tab 3 content -->
+	</ion-tab>
+  </ion-tabs>	
+  
+	<ion-tabs class="tabs-icon-top tabs-positive">
+
+		<ion-tab title="Home" icon="ion-home" href="#/tab/home">
+		  <ion-nav-view name="home-tab"></ion-nav-view>
+		</ion-tab>
+
+		<ion-tab title="About" icon="ion-ios-information" href="#/tab/about">
+		  <ion-nav-view name="about-tab"></ion-nav-view>
+		</ion-tab>
+
+		<ion-tab title="Contact" icon="ion-ios-world" ui-sref="tabs.contact">
+		  <ion-nav-view name="contact-tab"></ion-nav-view>
+		</ion-tab>
+
+	</ion-tabs>
+   
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-nav-title>
+    <span>Home Popular</span>
+  </ion-nav-title>
+  <ion-content>
+    <div class="row categories-list">
+      <div ng-repeat="category in feeds_categories" class="col col-50">
+        <a class="feed-category" ui-sref="app.category-feeds({categoryId: (category.title | slugify)})">
+          <pre-img ratio="_1_1" helper-class="square-image">
+            <img class="category-image" ng-src="{{category.image}}" spinner-on-load>
+          </pre-img>
+          <div class="category-bg"></div>
+          <span class="category-title">{{category.title}}</span>
+        </a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
